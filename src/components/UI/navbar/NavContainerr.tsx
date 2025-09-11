@@ -2,8 +2,8 @@
 
 const NavContainerr = () => {
   return (
-    <nav>
-      
+    <nav className="h-[4rem] bg-white">
+
     </nav>
   )
 }

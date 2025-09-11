@@ -1,14 +1,25 @@
-
-import SidebarOption from './sidebarOption';
+import { useState } from "react";
+import SidebarOption from "./sidebarOption";
 const SideBarBox = () => {
-  return (
-    <div className="bg-[white] hidden h-screen w-[20rem] flex-col gap-[1rem] p-[1rem]">
-      <SidebarOption option="home" />
-      <SidebarOption option="home" />
-      <SidebarOption option="home" />
-      <SidebarOption option="home" />
-    </div>
-  )
-}
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-export default SideBarBox
+  return (
+    <div className="relative pl-8">
+      
+      <div className={ `bg-[white] h-screen w-[20rem] flex-col gap-[2rem] p-8 ${menuIsOpen?"flex":"hidden"} md:flex`}>
+        <SidebarOption option="home" />
+        <SidebarOption option="home" />
+        <SidebarOption option="home" />
+        <SidebarOption option="home" />
+      </div>
+      <img
+        className={` ${menuIsOpen? "absolute": "block"} top-[1.5rem] -right-[6rem] md:-right-[5rem] md:hidden`}
+        src={`/assets/icons/${menuIsOpen?"close":"menu"}.svg`}
+        alt="ffghfg"
+        onClick={() => setMenuIsOpen(!menuIsOpen)}
+      />
+    </div>
+  );
+};
+
+export default SideBarBox;
