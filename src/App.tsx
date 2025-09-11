@@ -2,9 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
 import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 const App = () => {
+    const queryClient= new QueryClient()
 
     const router = createBrowserRouter([
       { path: "/", 
@@ -16,7 +18,9 @@ const App = () => {
     ]);
 
   return (
-  <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   );
 };
 
