@@ -2,7 +2,9 @@
 
 const NavContainerr = () => {
   return (
-    <div>NavContainerr</div>
+    <nav>
+      
+    </nav>
   )
 }
 
