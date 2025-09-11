@@ -46,7 +46,7 @@ Variables
 
   --transition: all 0.3s linear;
 
-  --spacing: 1rem;
+  --spacing: 0.1rem;
 }
 
 /*
@@ -78,7 +78,6 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
   line-height: 150%;
   margin: 0;
   font-family: var(--ff-primary);
@@ -97,8 +96,9 @@ h3 {
     font-weight: 700;
 }
 h4 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
+    color: var(--clr-neutral-2);
 }
 p {
   margin-bottom: 1.4rem;
@@ -110,10 +110,15 @@ p {
 body{
   font-size:1.3rem
 }
+h4{
+  font-size:1.4rem;
+}
 
 }
 .p-8{padding:2rem;}
-
+.align-self-center{
+  align-self: center;
+}
 /* ========
 sidebar
 =========== */

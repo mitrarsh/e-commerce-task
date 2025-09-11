@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import SideBarBox from "../components/UI/sidebar/SideBarBox.js";
-import NavContainerr from "../components/UI/navbar/NavContainerr.js";
+import SideBarBox from "./sidebar/SideBarBox.js";
+import NavContainerr from "./navbar/NavContainerr.js";
 
 const RootLayout = () => {
   return (
