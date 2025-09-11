@@ -3,7 +3,7 @@
 Fonts
 ===============
 */
-@import url("");
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 /*
 =============== 
@@ -12,28 +12,41 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  /* --clr-primary-1: hsl(205, 86%, 17%); */
 
   /* primary/main color */
-
-  /* lighter shades of primary color */
-
-  /* darkest grey - used for headings */
-
-  /* grey used for paragraphs */
+  --clr-primary-1: #FFBB54;
   
-  --ff-primary: 
-  --ff-secondary: 
+
+  /* secondary/main color */
+  --clr-secondary-1: #25C78B;
+  --clr-secondary-2: #04A4F4;
+  --clr-secondary-3: #DB5962;
+
+
+  /* neutral/main color */
+  --clr-neutral-1: #141522;
+  --clr-neutral-2: #9C9CA4;
+  --clr-neutral-3: #DFDFDF;
+  --clr-neutral-4: #F5F5F7;
+  --clr-neutral-5: #FCFCFC;
+  --clr-neutral-6: #FFFFFF;
+
+
+  /* label/main color */
+  --clr-label-1: #EAF8FF;
+  --clr-label-2: #EFF6E9;
+  --clr-label-3: #FFF3E0;
+  --clr-label-4: #FFF4F3;
+  --clr-label-5: linear-gradient(to right,
+  #547AFF 0%,
+  #1337F2 92%,s
+  #2400FF 100%);
+
+  --ff-primary: "Plus Jakarta Sans", sans-serif;
 
   --transition: all 0.3s linear;
-  --spacing: 
-  --radius: 
-  --light-shadow: 
-  --dark-shadow:  
-  --max-width: 
-  --fixed-width: 
 }
+
 /*
 =============== 
 Global Styles
@@ -50,67 +63,58 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: ;
-  background: ;
-  color: ;
-  line-height: 1.5;
-  font-size: ;
+  font-family: "Plus Jakarta Sans", sans-serif;;
+  color: var(--clr-neutral-1);
+  line-height: 200%;
+  font-weight: 400;
+  font-size: 1.4rem;
+  width: 100%;
+  background-color: var(--clr-neutral-5);
 }
-ul {
-  list-style-type: ;
-}
-a {
-  text-decoration: ;
-}
+
 h1,
 h2,
 h3,
 h4 {
   letter-spacing: var(--spacing);
-  text-transform: ;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
+  line-height: 150%;
+  margin: 0;
   font-family: var(--ff-primary);
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  
 }
 h2 {
-  font-size: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
 }
 h3 {
-  font-size: 1.25rem;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 h4 {
-  font-size: 0.875rem;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.4rem;
   color: var(--clr-grey-5);
+  margin: 0;
 }
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-  }
-  h3 {
-    font-size: 1.75rem;
-  }
-  h4 {
-    font-size: 1rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
-}
-/*  global classes */
 
-/* section */
+@media screen and (min-width: 768px) {
+body{
+  font-size:1.3rem
+}
+}
+
+
+/* ========
+sidebar
+=========== */
+
+.sidebar-opton{
+  background-color: var(--clr-neutral-3);
+}

@@ -1,6 +1,20 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./layout/RootLayout";
+import HomePage from "./pages/HomePage";
+
+
 const App = () => {
+
+    const router = createBrowserRouter([
+      { path: "/", 
+        element: <RootLayout />, 
+        children: [
+        { path: "/", element: <HomePage /> },
+      ]},
+    ]);
+
   return (
-    <h1 className=" border-spacing-4">Hello world!</h1>
+  <RouterProvider router={router}></RouterProvider>
   );
 };
 
