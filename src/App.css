@@ -108,6 +108,7 @@ p {
 body{
   font-size:1.3rem
 }
+
 }
 
 
@@ -117,4 +118,15 @@ sidebar
 
 .sidebar-opton{
   background-color: var(--clr-neutral-3);
+}
+
+/* ========
+productCard
+=========== */
+@media screen and (min-width: 768px) {
+  .productCard{
+  
+  }
+
+
 }
