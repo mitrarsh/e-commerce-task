@@ -45,6 +45,8 @@ Variables
   --ff-primary: "Plus Jakarta Sans", sans-serif;
 
   --transition: all 0.3s linear;
+
+  --spacing: 1rem;
 }
 
 /*
@@ -123,10 +125,3 @@ sidebar
 /* ========
 productCard
 =========== */
-@media screen and (min-width: 768px) {
-  .productCard{
-  
-  }
-
-
-}
