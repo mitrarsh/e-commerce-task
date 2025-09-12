@@ -3,6 +3,7 @@ import RootLayout from "./layout/RootLayout";
 import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/ErrorPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SearchResults from "./pages/SearchResults";
 
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         errorElement: <ErrorPage/>,
         children: [
         { index:true, element: <HomePage /> },
+        { path:"search-results", element: <SearchResults/> },
+
       ]},
     ]);
 

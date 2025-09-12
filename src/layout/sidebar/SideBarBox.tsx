@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SidebarOption from "./sidebarOption";
+import { Link } from "react-router-dom";
 const SideBarBox = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -7,10 +8,9 @@ const SideBarBox = () => {
     <div className="relative pl-8">
       
       <div className={ `bg-[white] h-screen w-[20rem] flex-col gap-[2rem] p-8 ${menuIsOpen?"flex":"hidden"} md:flex`}>
-        <SidebarOption option="home" />
-        <SidebarOption option="home" />
-        <SidebarOption option="home" />
-        <SidebarOption option="home" />
+        <Link to="/">
+          <SidebarOption option="home" />
+        </Link>
       </div>
       <img
         className={` ${menuIsOpen? "absolute": "block"} top-[1.5rem] -right-[6rem] md:-right-[5rem] md:hidden`}

@@ -73,6 +73,9 @@ body {
   width: 100%;
   background-color: var(--clr-neutral-5);
 }
+input{
+  border: none;
+}
 
 h1,
 h2,
@@ -167,4 +170,9 @@ product
 
 .error-block p {
   margin: 0;
+}
+.search-bar{
+  padding : 0.7rem 1.2rem ;
+  border: 1px solid var(--clr-neutral-4);
+  border-radius: 1rem;
 }
