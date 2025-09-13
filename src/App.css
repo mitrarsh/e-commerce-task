@@ -3,7 +3,7 @@
 Fonts
 ===============
 */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
 /*
 =============== 
@@ -12,35 +12,33 @@ Variables
 */
 
 :root {
-
   /* primary/main color */
-  --clr-primary-1: #FFBB54;
-  
+  --clr-primary-1: #ffbb54;
 
   /* secondary/main color */
-  --clr-secondary-1: #25C78B;
-  --clr-secondary-2: #04A4F4;
-  --clr-secondary-3: #DB5962;
-
+  --clr-secondary-1: #25c78b;
+  --clr-secondary-2: #04a4f4;
+  --clr-secondary-3: #db5962;
 
   /* neutral/main color */
   --clr-neutral-1: #141522;
-  --clr-neutral-2: #9C9CA4;
-  --clr-neutral-3: #DFDFDF;
-  --clr-neutral-4: #F5F5F7;
-  --clr-neutral-5: #FCFCFC;
-  --clr-neutral-6: #FFFFFF;
-
+  --clr-neutral-2: #9c9ca4;
+  --clr-neutral-3: #dfdfdf;
+  --clr-neutral-4: #f5f5f7;
+  --clr-neutral-5: #fcfcfc;
+  --clr-neutral-6: #ffffff;
 
   /* label/main color */
-  --clr-label-1: #EAF8FF;
-  --clr-label-2: #EFF6E9;
-  --clr-label-3: #FFF3E0;
-  --clr-label-4: #FFF4F3;
-  --clr-label-5: linear-gradient(to right,
-  #547AFF 0%,
-  #1337F2 92%,s
-  #2400FF 100%);
+  --clr-label-1: #eaf8ff;
+  --clr-label-2: #eff6e9;
+  --clr-label-3: #fff3e0;
+  --clr-label-4: #fff4f3;
+  --clr-label-5: linear-gradient(
+    to right,
+    #547aff 0%,
+    #1337f2 92%,
+    s #2400ff 100%
+  );
 
   --ff-primary: "Plus Jakarta Sans", sans-serif;
 
@@ -65,7 +63,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;;
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--clr-neutral-1);
   line-height: 200%;
   font-weight: 400;
@@ -73,7 +71,7 @@ body {
   width: 100%;
   background-color: var(--clr-neutral-5);
 }
-input{
+input {
   border: none;
 }
 
@@ -88,20 +86,19 @@ h4 {
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  
 }
 h2 {
-    font-size: 2rem;
-    font-weight: 500;
+  font-size: 2rem;
+  font-weight: 500;
 }
 h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 h4 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: var(--clr-neutral-2);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--clr-neutral-2);
 }
 p {
   margin-bottom: 1.4rem;
@@ -110,33 +107,38 @@ p {
 }
 
 @media screen and (min-width: 768px) {
-body{
-  font-size:1.3rem
+  body {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.4rem;
+  }
+  p {
+    font-size: 1.4rem;
+  }
 }
-h4{
-  font-size:1.4rem;
+.p-8 {
+  padding: 2rem;
 }
-p{
-  font-size:1.2rem;
-}
-
-}
-.p-8{padding:2rem;}
-.align-self-center{
+.align-self-center {
   align-self: center;
 }
+.margin{
+  margin: 4rem;
+}
+
 /* ========
 sidebar
 =========== */
 
-.sidebar-opton{
+.sidebar-opton {
   background-color: var(--clr-neutral-3);
 }
 
 /* ========
 product
 =========== */
-.productsList{
+.productsList {
   justify-items: center;
 }
 .error-block {
@@ -174,9 +176,9 @@ product
 .error-block p {
   margin: 0;
 }
-.filter-box{
-  padding : 0.7rem 1.2rem ;
+.filter-box {
+  padding: 0.7rem 1.2rem;
   border: 1px solid var(--clr-neutral-4);
   border-radius: 1rem;
-
+  box-shadow: 0 0 2px 0 var(--clr-label-3);
 }
