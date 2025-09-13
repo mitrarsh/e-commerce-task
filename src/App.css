@@ -182,3 +182,7 @@ product
   border-radius: 1rem;
   box-shadow: 0 0 2px 0 var(--clr-label-3);
 }
+/* cart */
+.cart-grid{
+  grid-template-columns: 10% 40% 10% 10% 10%;
+}
