@@ -6,6 +6,14 @@ export async function fetchProducts():Promise<Product[]> {
     }
     return await res.json();
 }
+export async function fetchProductsById(id:string):Promise<Product> {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    if (!res.ok) {
+        const error = new Error('An error occured while fetching products');
+        throw error;
+    }
+    return await res.json();
+}
 
 
 

@@ -6,13 +6,13 @@ import LoadingIndicator from "../components/UI/Loadingindicator";
 import SearchBar from "../components/UI/SearchBar";
 import Sorting from "../components/UI/Sorting";
 import ProductCard from "../components/products/productCard";
-import { fetchProducts } from "../utils/productHttp";
 import { useProductListStore } from "../store/store";
+import { fetchProducts } from "../utils/productHttp";
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const productList= useProductListStore((state)=>state.productList)
-  const setProductList= useProductListStore((state)=>state.setProductList)
+  const productList = useProductListStore((state) => state.productList);
+  const setProductList = useProductListStore((state) => state.setProductList);
 
   // fetching data
 
@@ -21,28 +21,27 @@ const HomePage = () => {
     queryFn: fetchProducts,
   });
 
-  useEffect(()=>{
-    if(data){
-      setProductList(data)
+  useEffect(() => {
+    if (data) {
+      setProductList(data);
     }
-  },[data, setProductList])
-
+  }, [data, setProductList]);
 
   //handling search filter
 
   const handleSearch = (value: string) => {
     setSearchTerm(value);
   };
-  useEffect(()=>{
-    if(searchTerm&&data){
-      const filteredData= data.filter((product:any)=>
+  useEffect(() => {
+    if (searchTerm && data) {
+      const filteredData = data.filter((product: any) =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setProductList(filteredData);
-    }else if(data){
-      setProductList(data)
+    } else if (data) {
+      setProductList(data);
     }
-  },[searchTerm,data,setProductList])
+  }, [searchTerm, data, setProductList]);
 
   //handling category filter
 
@@ -58,11 +57,8 @@ const HomePage = () => {
     return acc;
   }, []);
 
-
-
-
   if (isLoading) {
-  return <LoadingIndicator />;
+    return <LoadingIndicator />;
   }
   if (isError) {
     const message =
@@ -82,6 +78,7 @@ const HomePage = () => {
       <ul className="productsList p-[2rem] w-full flex flex-col gap-[2rem] md:grid md:grid-cols-3 lg:grid-cols-4 justify-center items-center align-middle md:mx-auto">
         {productList?.map((product) => (
           <ProductCard
+            id={product.id}
             key={product.id}
             image={product.image}
             title={product.title}
