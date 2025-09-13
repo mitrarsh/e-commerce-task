@@ -74,7 +74,7 @@ const HomePage = () => {
     <main className="px-[2rem] flex flex-col gap-[2rem] p-8">
       <div className="homepage-nav flex flex-col md:flex-row md:justify-between md:items-center gap-[2rem]">
         <SearchBar onSearch={handleSearch} />
-        <nav className="flex gap-[2rem] h-[50%] align-middle">
+        <nav className="flex gap-[3rem] h-[50%] align-middle">
           <CategoryFilter categories={categories} />
           <Sorting />
         </nav>

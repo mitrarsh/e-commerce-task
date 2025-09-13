@@ -22,16 +22,16 @@ const CategoryFilter = ({ categories }: CategoryFilterProps) => {
   }, [selectedCategory]);
 
   return (
-    <section>
+    <section className="relative flex">
       <div className="flex gap-[1rem] cursor-pointer">
         <img className="w-[2rem]" src="/assets/icons/element-2.svg" alt="" />
         <p>Category</p>
       </div>
-      <div className="filter-box hidden md:block">
+      <div className=" absolute -right-[2rem]">
         <select
           name="category"
           id="category"
-          className="bg-transparent outline-none"
+          className="bg-transparent outline-none w-[2rem]"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
