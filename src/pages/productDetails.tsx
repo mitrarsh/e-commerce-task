@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ErrorBlock from "../components/UI/ErrorBlock";
 import LoadingIndicator from "../components/UI/Loadingindicator";
 import { fetchProductsById } from "../utils/productHttp";
+import AddToCartBtn from "../components/UI/AddToCartBtn";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,6 +45,7 @@ const ProductDetails = () => {
               </div>
               <p>{data?.rating.count} reviews</p>
             </div>
+              <AddToCartBtn item={data}/>
           </div>
         </div>
       </div>
