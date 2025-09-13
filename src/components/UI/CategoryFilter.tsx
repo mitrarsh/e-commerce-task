@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useProductListStore } from "../../store/store";
+import { useProductListStore } from "../../store/productListStore";
 
 type CategoryFilterProps = {
   categories: string[];

@@ -6,7 +6,7 @@ import LoadingIndicator from "../components/UI/Loadingindicator";
 import SearchBar from "../components/UI/SearchBar";
 import Sorting from "../components/UI/Sorting";
 import ProductCard from "../components/products/productCard";
-import { useProductListStore } from "../store/store";
+import { useProductListStore } from "../store/productListStore";
 import { fetchProducts } from "../utils/productHttp";
 
 const HomePage = () => {

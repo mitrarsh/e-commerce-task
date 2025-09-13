@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProductListStore } from "../../store/store";
+import { useProductListStore } from "../../store/productListStore";
 
 const Sorting = () => {
   const productList = useProductListStore((state) => state.productList);
@@ -20,7 +20,13 @@ const Sorting = () => {
 
   return (
     <div className="flex gap-[1rem]  cursor-pointer" onClick={handleSort}>
-      <img className={`w-[3rem] ${sortingOrder==="asc"?"rotate-180":""} transition-all duration-300`} src="/assets/icons/sort.svg" alt="" />
+      <img
+        className={`w-[3rem] ${
+          sortingOrder === "asc" ? "rotate-180" : ""
+        } transition-all duration-300`}
+        src="/assets/icons/sort.svg"
+        alt=""
+      />
       <p>Sort by Price: {sortingOrder}</p>
     </div>
   );
