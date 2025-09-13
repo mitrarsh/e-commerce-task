@@ -1,4 +1,4 @@
-export async function fetchProducts():Promise<{ products: Product[]}> {
+export async function fetchProducts():Promise<Product[]> {
     const res = await fetch("https://fakestoreapi.com/products");
     if (!res.ok) {
         const error = new Error('An error occured while fetching products');

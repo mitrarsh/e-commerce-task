@@ -14,7 +14,7 @@ const SearchBar = ({onSearch}:{onSearch:(value:string)=>void}) => {
 
 
   return (
-    <div className="search-bar flex w-[100%] md:w-[25%] items-center justify-center rounded-[1rem] gap-[1rem]">
+    <div className="filter-box flex w-[100%] md:w-[25%] items-center justify-center rounded-[1rem] gap-[1rem]">
       <input
         className="w-full outline-0"
         type="search"

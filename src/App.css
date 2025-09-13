@@ -174,8 +174,9 @@ product
 .error-block p {
   margin: 0;
 }
-.search-bar{
+.filter-box{
   padding : 0.7rem 1.2rem ;
   border: 1px solid var(--clr-neutral-4);
   border-radius: 1rem;
+
 }
