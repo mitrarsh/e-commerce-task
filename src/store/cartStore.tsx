@@ -1,11 +1,12 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { Product } from "../utils/productHttp";
 
+
 type CartItemsContextType = {
     cartItems:any[];
     setCartItems: React.Dispatch<React.SetStateAction<any[]>>;
-    addToCart: React.Dispatch<React.SetStateAction<any[]>>;
-    removeFromCart: React.Dispatch<React.SetStateAction<any[]>>;
+    addToCart: (item:Product)=>void;
+    removeFromCart: (id:number)=>void;
 }
 
 export const CartItemsContext = createContext<CartItemsContextType>({ cartItems: [], setCartItems:()=>{}, addToCart:()=>{}, removeFromCart:()=>{} });

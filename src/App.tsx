@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import ProductDetails from "./pages/productDetails";
 import { CartItemsContextProvider } from "./store/cartStore";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -17,6 +18,7 @@ const App = () => {
       children: [
         { index: true, element: <HomePage /> },
         { path: "/product/:id", element: <ProductDetails /> },
+        { path: "/cart", element: <Cart /> },
       ],
     },
   ]);

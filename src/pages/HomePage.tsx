@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import AddToCartBtn from "../components/UI/AddToCartBtn";
 import CategoryFilter from "../components/UI/CategoryFilter";
 import ErrorBlock from "../components/UI/ErrorBlock";
 import LoadingIndicator from "../components/UI/Loadingindicator";
@@ -75,17 +76,22 @@ const HomePage = () => {
           <Sorting />
         </nav>
       </div>
-      <ul className="productsList p-[2rem] w-full flex flex-col gap-[2rem] md:grid md:grid-cols-3 lg:grid-cols-4 justify-center items-center align-middle md:mx-auto">
+      <ul className="productsList p-[2rem] w-full flex flex-col gap-[10rem] md:grid md:grid-cols-3 lg:grid-cols-4 justify-center items-center align-middle md:mx-auto">
         {productList?.map((product) => (
-          <ProductCard
-            id={product.id}
-            key={product.id}
-            image={product.image}
-            title={product.title}
-            price={product.price}
-            rate={product.rating.rate}
-            count={product.rating.count}
-          />
+          
+            <div className="flex flex-col gap-[1rem] w-full">
+              <ProductCard
+              id={product.id}
+              key={product.id}
+              image={product.image}
+              title={product.title}
+              price={product.price}
+              rate={product.rating.rate}
+              count={product.rating.count}
+            />
+            <AddToCartBtn item={product}/>
+            </div>
+          
         ))}
       </ul>
     </main>
