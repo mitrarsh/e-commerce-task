@@ -1,18 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useProductListStore } from "../../store/store";
 
-type CategoryFilterProps={
+type CategoryFilterProps = {
   categories: string[];
-}
+};
 
-const CategoryFilter = ({categories}:CategoryFilterProps) => {
-    const productList= useProductListStore((state)=>state.productList)
-    const setProductList= useProductListStore((state)=>state.setProductList)
-  
-    useEffect(()=>{
-      
-    })
-  
+const CategoryFilter = ({ categories }: CategoryFilterProps) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const productList = useProductListStore((state) => state.productList);
+  const setProductList = useProductListStore((state) => state.setProductList);
+
+  useEffect(() => {
+    if (!selectedCategory || selectedCategory === "all") {
+      return;
+    } else {
+      const filteredData = productList.filter(
+        (product) => product.category === selectedCategory
+      );
+      setProductList(filteredData);
+    }
+  }, [selectedCategory]);
+
   return (
     <section>
       <div className="flex gap-[1rem] cursor-pointer">
@@ -20,13 +28,20 @@ const CategoryFilter = ({categories}:CategoryFilterProps) => {
         <p>Category</p>
       </div>
       <div className="filter-box hidden md:block">
-        <select name="category" id="category" className="bg-transparent outline-none">
+        <select
+          name="category"
+          id="category"
+          className="bg-transparent outline-none"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
           <option value="all">All</option>
-          {categories?.map((category:string)=>(
-            <option key={category} value={category}>{category}</option>
+          {categories?.map((category: string) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
           ))}
         </select>
-          
       </div>
     </section>
   );
