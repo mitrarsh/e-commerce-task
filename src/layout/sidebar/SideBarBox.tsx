@@ -6,7 +6,7 @@ const SideBarBox = () => {
   const toggleSidebar = sidebarToggle((state) => state.toggleSidebar);
 
   return (
-    <div className={`${sidebarIsOpen ? "flex" : "hidden"} md:flex p-8 `}>
+    <div className={`${sidebarIsOpen ? "flex" : "hidden"} md:flex `}>
       <div className={`bg-[white] h-screen w-[20rem] flex flex-col gap-[2rem] p-8 `}>
         <div className="flex w-full justify-end">
           <img

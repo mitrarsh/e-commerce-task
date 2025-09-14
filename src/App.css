@@ -141,6 +141,11 @@ product
 .productsList {
   justify-items: center;
 }
+
+/* error */
+.errorMsg{
+    color: #cf353d;
+}
 .error-block {
   background-color: #f0d9e5;
   margin: 1rem 0;

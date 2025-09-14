@@ -8,6 +8,7 @@ import ErrorBlock from "../../components/UI/ErrorBlock";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg]=useState("")
 
   const{mutate, isError, error, isPending}=useMutation({
     mutationFn:(payload:LoginPayload)=>loginUser(payload),
@@ -39,7 +40,7 @@ const Login = () => {
   return (
     <main className="p-8 flex flex-col gap-[2rem]">
       <h2>Login</h2>
-      <Form onSubmit={handleSubmit} className="self-center justify-center flex flex-col align-middle gap-[2rem]" action="">
+      <Form onSubmit={handleSubmit} className="self-center justify-center flex flex-col align-middle gap-[2rem] w-full md:w-[50%]" action="">
         <div className="flex flex-col">
           <input
             name="username"
@@ -49,7 +50,7 @@ const Login = () => {
             placeholder="Username"
           />
         </div>
-        <div className="input-bar-form">
+        <div className="flex flex-col">
           <input
             name="password"
             required
@@ -59,9 +60,10 @@ const Login = () => {
             minLength={8}
           />
         </div>
+        <p className="errorMsg">{errorMsg}</p>
         <div className="login-btn">
           <button className="outline-0 border-0 cursor-pointer bg-[#ffbb54] p-8 w-full rounded-[1rem]" type="submit">
-            Log in
+            <h3>Log In</h3>
           </button>
         </div>
       </Form>
