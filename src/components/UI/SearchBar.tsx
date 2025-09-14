@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-const SearchBar = ({onSearch}:{onSearch:(value:string)=>void}) => {
+interface SearchBarProps {
+  onSearch: (term: string) => void;
+}
 
+const SearchBar = ({onSearch}:SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
     onSearch(value);
-
   };
-
-
 
   return (
     <div className="filter-box flex w-[100%] md:w-[25%] items-center justify-center rounded-[1rem] gap-[1rem]">

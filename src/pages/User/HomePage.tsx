@@ -11,11 +11,10 @@ import { useProductListStore } from "../../store/productListStore";
 import { fetchProducts } from "../../utils/productHttp";
 
 const HomePage = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const productList = useProductListStore((state) => state.productList);
   const setProductList = useProductListStore((state) => state.setProductList);
 
-  // fetching data
+// fetching data
 
   const { data, isError, isLoading, error } = useQuery({
     queryKey: ["products"],
@@ -28,24 +27,21 @@ const HomePage = () => {
     }
   }, [data, setProductList]);
 
-  //handling search filter
 
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-  };
-  useEffect(() => {
-    if (searchTerm && data) {
-      const filteredData = data.filter((product: any) =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //handling search filter
+  const handleSearch= (term:string) => {
+    if (term) {
+      const filtered = (data ?? []).filter((product) =>
+        product.title.toLowerCase().includes(term.toLowerCase())
       );
-      setProductList(filteredData);
-    } else if (data) {
-      setProductList(data);
+      setProductList(filtered);
+    } else {
+      setProductList(data ?? []);
     }
-  }, [searchTerm, data, setProductList]);
+  }
+
 
   //handling category filter
-
   interface Product {
     category: string;
     title: string;
@@ -70,7 +66,7 @@ const HomePage = () => {
   return (
     <main className="px-[2rem] flex flex-col gap-[2rem] p-8">
       <div className="homepage-nav flex flex-col md:flex-row md:justify-between md:items-center gap-[2rem]">
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch}/>
         <nav className="flex gap-[3rem] h-[50%] align-middle">
           <CategoryFilter categories={categories} />
           <Sorting />
