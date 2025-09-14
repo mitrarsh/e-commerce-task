@@ -5,7 +5,7 @@ import ErrorBlock from "../../components/UI/ErrorBlock";
 import SearchBar from "../../components/UI/SearchBar";
 import { useEffect, useState } from "react";
 
-const AdminPannel = () => {
+const Users = () => {
 
   const[filteredUsers,setFilteredUsers]= useState<User[]>([])
 
@@ -67,4 +67,4 @@ const AdminPannel = () => {
   );
 };
 
-export default AdminPannel;
+export default Users;
