@@ -1,8 +1,29 @@
+import { useQuery } from "@tanstack/react-query";
+import { fetchUser } from "../../utils/usersHttp";
+import LoadingIndicator from "../../components/UI/Loadingindicator";
+import ErrorBlock from "../../components/UI/ErrorBlock";
+import SearchBar from "../../components/UI/SearchBar";
+
 const AdminPannel = () => {
+  const { data, isError, error, isLoading } = useQuery({
+    queryKey: ["users"],
+    queryFn: fetchUser,
+  });
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
+  if (isError) {
+    const message =
+      error instanceof Error ? error.message : "Something went wrong";
+    return <ErrorBlock title="Fetching Error" message={message} />;
+  }
+
   return (
-    <main className="p-8 flex flex-col">
+    <main className="p-8 flex flex-col gap-[2rem] ">
       <h2>Users</h2>
-      <table className="self-center">
+      <SearchBar onSearch={handleSearch}/>
+      <table className="self-center p-8 md:min-w-[50%]">
         <thead>
           <tr>
             <th className="filter-box">Username</th>
@@ -10,10 +31,12 @@ const AdminPannel = () => {
           </tr>
         </thead>
         <tbody>
+            {data?.map(user=>(
           <tr>
-            <td className="filter-box">mitra</td>
-            <td className="filter-box">mitraroshanfekr@yahoo.,conm</td>
+                <td className="filter-box">{user.username}</td>
+                <td className="filter-box">{user.email}</td>
           </tr>
+            ))}
         </tbody>
       </table>
     </main>
