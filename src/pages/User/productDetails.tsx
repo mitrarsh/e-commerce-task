@@ -45,7 +45,7 @@ const ProductDetails = () => {
               </div>
               <p>{data?.rating.count} reviews</p>
             </div>
-            <AddToCartBtn item={data} />
+            {data&&<AddToCartBtn item={data} />}
           </div>
         </div>
       </div>

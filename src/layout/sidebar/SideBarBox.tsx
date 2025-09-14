@@ -5,7 +5,7 @@ const SideBarBox = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <div className="relative pl-8">
+    <div className="relative p-8">
       
       <div className={ `bg-[white] h-screen w-[20rem] flex-col gap-[2rem] p-8 ${menuIsOpen?"flex":"hidden"} md:flex`}>
         <Link to="/">

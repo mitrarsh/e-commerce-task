@@ -22,7 +22,9 @@ const App = () => {
         { index: true, element: <HomePage /> },
         { path: "/product/:id", element: <ProductDetails /> },
         { path: "/cart", element: <Cart /> },
-        { path: "/admin-pannel", element: <AdminPannel />, loader:checkAuthLoader },
+        { path: "/admin-pannel", element: <AdminPannel />,
+          //  loader:checkAuthLoader
+           },
         { path: "/login", element: <Login /> },
       ],
     },
