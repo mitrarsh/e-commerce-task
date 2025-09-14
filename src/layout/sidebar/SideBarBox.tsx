@@ -14,6 +14,9 @@ const SideBarBox = () => {
         <Link to="/admin-pannel">
           <SidebarOption option="َAdmin Pannel" />
         </Link>
+        <Link to="/login">
+          <SidebarOption option="َLogin" />
+        </Link>
           
       </div>
       <img

@@ -7,6 +7,7 @@ import HomePage from "./pages/User/HomePage";
 import ProductDetails from "./pages/User/productDetails";
 import { CartItemsContextProvider } from "./store/cartStore";
 import AdminPannel from "./pages/Admin/AdminPannel";
+import Login from "./pages/User/Login";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => {
         { path: "/product/:id", element: <ProductDetails /> },
         { path: "/cart", element: <Cart /> },
         { path: "/admin-pannel", element: <AdminPannel /> },
+        { path: "/login", element: <Login /> },
       ],
     },
   ]);
