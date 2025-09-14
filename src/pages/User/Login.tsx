@@ -1,9 +1,24 @@
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
+import { loginUser, type LoginPayload } from "../../utils/auth";
+import LoadingIndicator from "../../components/UI/Loadingindicator";
+import ErrorBlock from "../../components/UI/ErrorBlock";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+  
+
+  const{mutate, isError, error, isPending}=useMutation({
+    mutationFn:(payload:LoginPayload)=>loginUser(payload),
+    onSuccess:(data)=>{
+        localStorage.setItem("token", data.token);
+        alert("Login successfull");
+        navigate("/")
+    }
+  })
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -12,7 +27,16 @@ const Login = () => {
     const pwd = fd.get("password") as string;
     setUsername(uname)
     setPassword(pwd)
+    mutate({username,password})
   }
+    if (isPending) {
+      return <LoadingIndicator />;
+    }
+    if (isError) {
+      const message =
+        error instanceof Error ? error.message : "Something went wrong";
+      return <ErrorBlock title="Fetching Error" message={message} />;
+    }
 
   return (
     <main className="p-8 flex flex-col gap-[2rem]">
