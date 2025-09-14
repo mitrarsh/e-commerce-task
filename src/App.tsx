@@ -8,6 +8,7 @@ import ProductDetails from "./pages/User/productDetails";
 import { CartItemsContextProvider } from "./store/cartStore";
 import AdminPannel from "./pages/Admin/AdminPannel";
 import Login from "./pages/User/Login";
+import { checkAuthLoader } from "./utils/auth";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -21,7 +22,7 @@ const App = () => {
         { index: true, element: <HomePage /> },
         { path: "/product/:id", element: <ProductDetails /> },
         { path: "/cart", element: <Cart /> },
-        { path: "/admin-pannel", element: <AdminPannel /> },
+        { path: "/admin-pannel", element: <AdminPannel />, loader:checkAuthLoader },
         { path: "/login", element: <Login /> },
       ],
     },

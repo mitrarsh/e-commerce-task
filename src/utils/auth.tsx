@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 export type LoginPayload={
     username:string;
     password:string
@@ -17,4 +19,11 @@ export async function loginUser(payload:LoginPayload):Promise<LoginResponse>{
         throw new Error("Invalid username or password");
     }
     return res.json();
+}
+
+export function checkAuthLoader(){
+    const token = localStorage.getItem("token");
+    if(!token){
+        return redirect ('/login')
+    }
 }

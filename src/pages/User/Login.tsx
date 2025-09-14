@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { loginUser, type LoginPayload } from "../../utils/auth";
 import LoadingIndicator from "../../components/UI/Loadingindicator";
 import ErrorBlock from "../../components/UI/ErrorBlock";
@@ -8,15 +8,13 @@ import ErrorBlock from "../../components/UI/ErrorBlock";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-    const navigate = useNavigate();
-  
 
   const{mutate, isError, error, isPending}=useMutation({
     mutationFn:(payload:LoginPayload)=>loginUser(payload),
     onSuccess:(data)=>{
         localStorage.setItem("token", data.token);
         alert("Login successfull");
-        navigate("/")
+        redirect ('/')
     }
   })
 
