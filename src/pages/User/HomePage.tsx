@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import AddToCartBtn from "../components/UI/AddToCartBtn";
-import CategoryFilter from "../components/UI/CategoryFilter";
-import ErrorBlock from "../components/UI/ErrorBlock";
-import LoadingIndicator from "../components/UI/Loadingindicator";
-import SearchBar from "../components/UI/SearchBar";
-import Sorting from "../components/UI/Sorting";
-import ProductCard from "../components/products/productCard";
-import { useProductListStore } from "../store/productListStore";
-import { fetchProducts } from "../utils/productHttp";
+import AddToCartBtn from "../../components/UI/AddToCartBtn";
+import CategoryFilter from "../../components/UI/CategoryFilter";
+import ErrorBlock from "../../components/UI/ErrorBlock";
+import LoadingIndicator from "../../components/UI/Loadingindicator";
+import SearchBar from "../../components/UI/SearchBar";
+import Sorting from "../../components/UI/Sorting";
+import ProductCard from "../../components/products/productCard";
+import { useProductListStore } from "../../store/productListStore";
+import { fetchProducts } from "../../utils/productHttp";
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -78,9 +78,8 @@ const HomePage = () => {
       </div>
       <ul className="productsList p-[2rem] w-full flex flex-col gap-[10rem] md:grid md:grid-cols-3 lg:grid-cols-4 justify-center items-center align-middle md:mx-auto">
         {productList?.map((product) => (
-          
-            <div className="flex flex-col gap-[1rem] w-full">
-              <ProductCard
+          <div className="flex flex-col gap-[1rem] w-full">
+            <ProductCard
               id={product.id}
               key={product.id}
               image={product.image}
@@ -89,9 +88,8 @@ const HomePage = () => {
               rate={product.rating.rate}
               count={product.rating.count}
             />
-            <AddToCartBtn item={product}/>
-            </div>
-          
+            <AddToCartBtn item={product} />
+          </div>
         ))}
       </ul>
     </main>

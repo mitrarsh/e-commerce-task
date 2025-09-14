@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import ErrorBlock from "../components/UI/ErrorBlock";
-import LoadingIndicator from "../components/UI/Loadingindicator";
-import { fetchProductsById } from "../utils/productHttp";
-import AddToCartBtn from "../components/UI/AddToCartBtn";
+import AddToCartBtn from "../../components/UI/AddToCartBtn";
+import ErrorBlock from "../../components/UI/ErrorBlock";
+import LoadingIndicator from "../../components/UI/Loadingindicator";
+import { fetchProductsById } from "../../utils/productHttp";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,11 +23,11 @@ const ProductDetails = () => {
   }
   return (
     <main className="flex flex-col justify-center w-[100%] gap-[2rem] lg:items-center margin">
-      <Link to='/' className="w-[90%]">
+      <Link to="/" className="w-[90%]">
         <img
-        className="w-[3rem] rotate-180 lg:arrow lg:w-[4rem] "
-        src="/assets/icons/arrow-up.svg"
-      />
+          className="w-[3rem] rotate-180 lg:arrow lg:w-[4rem] "
+          src="/assets/icons/arrow-up.svg"
+        />
       </Link>
       <div className="lg:flex-row lg:justify-self-center">
         <div className="w-[90%] bg-white rounded-[1rem] flex flex-col p-8 gap-[4rem] lg:flex-row ">
@@ -45,7 +45,7 @@ const ProductDetails = () => {
               </div>
               <p>{data?.rating.count} reviews</p>
             </div>
-              <AddToCartBtn item={data}/>
+            <AddToCartBtn item={data} />
           </div>
         </div>
       </div>

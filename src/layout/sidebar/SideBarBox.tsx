@@ -9,8 +9,12 @@ const SideBarBox = () => {
       
       <div className={ `bg-[white] h-screen w-[20rem] flex-col gap-[2rem] p-8 ${menuIsOpen?"flex":"hidden"} md:flex`}>
         <Link to="/">
-          <SidebarOption option="home" />
+          <SidebarOption option="Home" />
         </Link>
+        <Link to="/admin-pannel">
+          <SidebarOption option="َAdmin Pannel" />
+        </Link>
+          
       </div>
       <img
         className={` ${menuIsOpen? "absolute": "block"} top-[1.5rem] -right-[6rem] md:-right-[5rem] md:hidden`}

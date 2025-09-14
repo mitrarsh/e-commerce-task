@@ -9,7 +9,7 @@ export async function fetchProducts():Promise<Product[]> {
 export async function fetchProductsById(id:string):Promise<Product> {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     if (!res.ok) {
-        const error = new Error('An error occured while fetching products');
+        const error = new Error('An error occured while fetching the product');
         throw error;
     }
     return await res.json();

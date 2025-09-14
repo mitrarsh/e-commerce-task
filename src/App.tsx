@@ -1,11 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
-import ErrorPage from "./pages/ErrorPage";
-import HomePage from "./pages/HomePage";
-import ProductDetails from "./pages/productDetails";
+import Cart from "./pages/User/Cart";
+import ErrorPage from "./pages/User/ErrorPage";
+import HomePage from "./pages/User/HomePage";
+import ProductDetails from "./pages/User/productDetails";
 import { CartItemsContextProvider } from "./store/cartStore";
-import Cart from "./pages/Cart";
+import AdminPannel from "./pages/Admin/AdminPannel";
 
 const App = () => {
   const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const App = () => {
         { index: true, element: <HomePage /> },
         { path: "/product/:id", element: <ProductDetails /> },
         { path: "/cart", element: <Cart /> },
+        { path: "/admin-pannel", element: <AdminPannel /> },
       ],
     },
   ]);
