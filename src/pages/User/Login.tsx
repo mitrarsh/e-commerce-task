@@ -10,6 +10,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg]=useState("")
 
+
+  //handling login request
+
   const{mutate, isError, error, isPending}=useMutation({
     mutationFn:(payload:LoginPayload)=>loginUser(payload),
     onSuccess:(data)=>{
@@ -18,6 +21,9 @@ const Login = () => {
         redirect ('/')
     }
   })
+
+
+  //submitting form submit
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -28,6 +34,10 @@ const Login = () => {
     setPassword(pwd)
     mutate({username,password})
   }
+
+
+  //handling error and loading state
+  
     if (isPending) {
       return <LoadingIndicator />;
     }

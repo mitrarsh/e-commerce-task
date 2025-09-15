@@ -53,6 +53,9 @@ const HomePage = () => {
     }
     return acc;
   }, []);
+  
+
+  // handling error and loading state
 
   if (isLoading) {
     return <LoadingIndicator />;

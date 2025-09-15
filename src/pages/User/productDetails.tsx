@@ -8,11 +8,18 @@ import { fetchProductsById } from "../../utils/productHttp";
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
 
+
+  //getting product details
+
   const { data, isError, error, isLoading } = useQuery({
     queryKey: ["productDtails", id],
     queryFn: () => fetchProductsById(id!),
     enabled: id !== undefined,
   });
+
+
+  // handling error and loading state
+
   if (isLoading) {
     return <LoadingIndicator />;
   }
@@ -21,6 +28,8 @@ const ProductDetails = () => {
       error instanceof Error ? error.message : "Something went wrong";
     return <ErrorBlock title="Fetching Error" message={message} />;
   }
+
+  
   return (
     <main className="flex flex-col justify-center w-[100%] gap-[2rem] lg:items-center margin">
       <Link to="/" className="w-[90%]">

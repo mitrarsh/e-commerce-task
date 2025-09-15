@@ -25,9 +25,13 @@ export function CartItemsContextProvider({
     return stored? JSON.parse(stored) : [];
   });
 
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
+
+
+  // cart actions 
 
   const addToCart = (item: Product) => {
     const updatedCart = [...cartItems, item];
