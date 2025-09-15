@@ -219,6 +219,7 @@ product
 }
 .navbar-option{
   transition: all 0.3s;
+  cursor: pointer;
 }
 .navbar-option:hover{
  font-weight: 700;

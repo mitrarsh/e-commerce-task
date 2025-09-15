@@ -22,11 +22,11 @@ const NavContainer = () => {
 
       <h1 className="flex-1 ">E-Commerce</h1>
         <div className="hidden md:flex flex-1  align-middle h-fit gap-[3rem] text-gray-600 font-medium">
-        <Link to="/shop" className="navbar-option">Shop</Link>
-        <Link to="/about" className="navbar-option">About</Link>
-        <Link to="/contact" className="navbar-option">Contact</Link>
+        <div className="navbar-option">Shop</div>
+        <div className="navbar-option">About</div>
+        <div className="navbar-option">Contact</div>
       </div>
-      <Link to="/cart" className="relative">
+      <Link to="/cart" className="relative flex align-middle">
         <img src="/assets/icons/Cart1.svg" />
         {cartItemsCount > 0 ? (
           <div className="cart-count-sign absolute bg-[#db5962] -top-[0.75rem] -right-[0.5rem] rounded-full flex ">
@@ -34,7 +34,7 @@ const NavContainer = () => {
           </div>
         ) : null}
       </Link>
-      <div className="w-fit rounded-full overflow-hidden">
+      <div className="w-fit rounded-full overflow-hidden flex align-middle">
         <img className="w-[3.5rem]" src="/assets/icons/user.svg" alt="" />
       </div>
     </nav>

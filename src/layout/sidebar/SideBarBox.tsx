@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { sidebarToggle } from "../../store/sidebarStore";
 import SidebarOption from "./sidebarOption";
+
 const SideBarBox = () => {
   const sidebarIsOpen = sidebarToggle((state) => state.sidebarIsOpen);
   const toggleSidebar = sidebarToggle((state) => state.toggleSidebar);
 
-  const token= localStorage.getItem("token")
 
   return (
     <div className={`${sidebarIsOpen ? "flex" : "hidden"} md:flex `}>
-      <div className={`bg-[white] h-screen w-[20rem] flex flex-col gap-[2rem] p-8 `}>
+      <div
+        className={`bg-[white] h-screen w-[20rem] flex flex-col gap-[2rem] p-8 `}
+      >
         <div className="flex w-full justify-end">
           <img
             className={`
@@ -20,19 +22,15 @@ const SideBarBox = () => {
             onClick={toggleSidebar}
           />
         </div>
-        <Link to="/">
+        <Link className="navbar" to="/">
           <SidebarOption option="Home" />
         </Link>
-        <Link to="/users">
+        <Link className="navbar" to="/users">
           <SidebarOption option="َUsers" />
         </Link>
-            {
-              token?
-                <Link to="/login">
-                  <SidebarOption option="َLogin" />
-                </Link>
-                :null
-            }
+          <Link to="/login">
+            <SidebarOption option="Login" />
+          </Link>
       </div>
     </div>
   );

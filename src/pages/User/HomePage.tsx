@@ -44,7 +44,7 @@ useEffect(() => {
     );
   }
 
-  useProductListStore.setState({ productList: filtered });
+  setProductList(filtered);
 }, [allProducts, searchTerm, selectedCategory]);
 
 // Handlers
