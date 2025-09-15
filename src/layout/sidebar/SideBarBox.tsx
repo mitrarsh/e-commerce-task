@@ -5,6 +5,8 @@ const SideBarBox = () => {
   const sidebarIsOpen = sidebarToggle((state) => state.sidebarIsOpen);
   const toggleSidebar = sidebarToggle((state) => state.toggleSidebar);
 
+  const token= localStorage.getItem("token")
+
   return (
     <div className={`${sidebarIsOpen ? "flex" : "hidden"} md:flex `}>
       <div className={`bg-[white] h-screen w-[20rem] flex flex-col gap-[2rem] p-8 `}>
@@ -24,9 +26,13 @@ const SideBarBox = () => {
         <Link to="/users">
           <SidebarOption option="َUsers" />
         </Link>
-        <Link to="/login">
-          <SidebarOption option="َLogin" />
-        </Link>
+            {
+              token?
+                <Link to="/login">
+                  <SidebarOption option="َLogin" />
+                </Link>
+                :null
+            }
       </div>
     </div>
   );

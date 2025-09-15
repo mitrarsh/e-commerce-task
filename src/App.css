@@ -196,3 +196,30 @@ product
 .error{
   font-size: 10rem;
 }
+/* cart */
+.cart-count-sign{
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-secondary-3);
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+}
+.cart-count{
+  font-size: 1rem;
+  font-weight: 600;
+
+}
+/* nav */
+.navbar {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+.navbar-option{
+  transition: all 0.3s;
+}
+.navbar-option:hover{
+ font-weight: 700;
+}

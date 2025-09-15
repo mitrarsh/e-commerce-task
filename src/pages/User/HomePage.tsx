@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AddToCartBtn from "../../components/UI/AddToCartBtn";
 import CategoryFilter from "../../components/UI/CategoryFilter";
 import ErrorBlock from "../../components/UI/ErrorBlock";
@@ -11,8 +11,8 @@ import { useProductListStore } from "../../store/productListStore";
 import { fetchProducts } from "../../utils/productHttp";
 
 const HomePage = () => {
-  const productList = useProductListStore((state) => state.productList);
-  const setProductList = useProductListStore((state) => state.setProductList);
+const { allProducts, productList,setProductList, searchTerm, selectedCategory, setAllProducts, setFilters } =
+  useProductListStore();
 
 // fetching data
 
@@ -21,25 +21,36 @@ const HomePage = () => {
     queryFn: fetchProducts,
   });
 
-  useEffect(() => {
-    if (data) {
-      setProductList(data);
-    }
-  }, [data, setProductList]);
+useEffect(() => {
+  if (data) {
+    setAllProducts(data);
+  }
+}, [data, setAllProducts]);
 
+// Filtering with search or category filter
 
-  //handling search filter
-  const handleSearch= (term:string) => {
-    if (term) {
-      const filtered = (data ?? []).filter((product) =>
-        product.title.toLowerCase().includes(term.toLowerCase())
-      );
-      setProductList(filtered);
-    } else {
-      setProductList(data ?? []);
-    }
+useEffect(() => {
+  let filtered = allProducts;
+
+  if (searchTerm) {
+    filtered = filtered.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 
+  if (selectedCategory && selectedCategory !== "all") {
+    filtered = filtered.filter(
+      (product) => product.category === selectedCategory
+    );
+  }
+
+  useProductListStore.setState({ productList: filtered });
+}, [allProducts, searchTerm, selectedCategory]);
+
+// Handlers
+const handleSearch = (term: string) => {
+  setFilters({ searchTerm: term });
+};
 
   //handling category filter
   interface Product {
