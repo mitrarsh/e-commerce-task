@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 const Users = () => {
 
+  // getting users  data
+
   const[filteredUsers,setFilteredUsers]= useState<User[]>([])
 
   const { data, isError, error, isLoading } = useQuery({
@@ -19,6 +21,8 @@ const Users = () => {
       setFilteredUsers(data);
     }
   }, [data]);
+
+  // handling error andloading state
 
   if (isLoading) {
     return <LoadingIndicator />;

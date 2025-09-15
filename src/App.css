@@ -192,4 +192,7 @@ product
   grid-template-columns: 10% 40% 10% 10% 10%;
 }
 
-/* table */
+/* error page */
+.error{
+  font-size: 10rem;
+}
