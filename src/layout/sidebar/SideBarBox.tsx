@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { sidebarToggle } from "../../store/sidebarStore";
 import SidebarOption from "./sidebarOption";
 
+
 const SideBarBox = () => {
   const sidebarIsOpen = sidebarToggle((state) => state.sidebarIsOpen);
   const toggleSidebar = sidebarToggle((state) => state.toggleSidebar);
+  const token = localStorage.getItem("token")
 
 
   return (
@@ -28,9 +30,13 @@ const SideBarBox = () => {
         <Link className="navbar" to="/users">
           <SidebarOption option="َUsers" />
         </Link>
-          <Link to="/login">
-            <SidebarOption option="Login" />
-          </Link>
+        {
+          token ? null : (
+            <Link to="/login">
+              <SidebarOption option="Login" />
+            </Link>
+          )
+        }
       </div>
     </div>
   );
